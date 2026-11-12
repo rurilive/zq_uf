@@ -1,3 +1,3 @@
-from .renderer import Renderer, Triangle, Vertex
+from .renderer import Renderer, Texture, Triangle, Vertex
 
-__all__ = ["Renderer", "Triangle", "Vertex"]
+__all__ = ["Renderer", "Texture", "Triangle", "Vertex"]
