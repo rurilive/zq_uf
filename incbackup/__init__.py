@@ -1,3 +1,21 @@
-from .backup import TAG_FILE, backup, restore
+from .backup import (
+    BLOCKS_DIR,
+    CHUNK_SIZE,
+    MANIFEST_NAME,
+    TAG_FILE,
+    BackupError,
+    RestoreError,
+    backup,
+    restore,
+)
 
-__all__ = ["TAG_FILE", "backup", "restore"]
+__all__ = [
+    "BLOCKS_DIR",
+    "CHUNK_SIZE",
+    "MANIFEST_NAME",
+    "TAG_FILE",
+    "BackupError",
+    "RestoreError",
+    "backup",
+    "restore",
+]
