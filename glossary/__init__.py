@@ -1,3 +1,27 @@
-from .glossary import define, lookup, reset
+from .glossary import (
+    conflicts,
+    define,
+    fields_of,
+    history,
+    lookup,
+    map_field,
+    notifications,
+    rename,
+    reset,
+    search,
+    terms_of,
+)
 
-__all__ = ["define", "lookup", "reset"]
+__all__ = [
+    "conflicts",
+    "define",
+    "fields_of",
+    "history",
+    "lookup",
+    "map_field",
+    "notifications",
+    "rename",
+    "reset",
+    "search",
+    "terms_of",
+]
