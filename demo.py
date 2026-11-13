@@ -1,7 +1,10 @@
-from batchrerun import register, rerun
+from batchrerun import batches, history, register, rerun
 
 register({"id": "b1", "tasks": [{"name": "a", "ok": True}, {"name": "b", "ok": False}]})
 print(rerun("b1"))
 print(rerun("b1"))
 
-# TODO: 第二段演示（实现后补）
+# 第二段：半成功批次的分区、历史与统计
+print(batches["b1"])
+print(batches["last"])
+print(history)
