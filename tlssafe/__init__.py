@@ -1,3 +1,37 @@
-from .tls import FetchError, fetch, set_opener
+from .tls import (
+    ALLOWLIST_DEFAULT_MINUTES,
+    CERT_EXPIRED,
+    CERT_HOSTNAME_MISMATCH,
+    CERT_INCOMPLETE_CHAIN,
+    CERT_INFO_TIMEOUT,
+    CERT_UNKNOWN,
+    CertError,
+    FetchError,
+    allow_host,
+    clear_allowlist,
+    fetch,
+    revoke_host,
+    set_audit_log,
+    set_ca_file,
+    set_opener,
+    set_unverified_opener,
+)
 
-__all__ = ["FetchError", "fetch", "set_opener"]
+__all__ = [
+    "ALLOWLIST_DEFAULT_MINUTES",
+    "CERT_EXPIRED",
+    "CERT_HOSTNAME_MISMATCH",
+    "CERT_INCOMPLETE_CHAIN",
+    "CERT_INFO_TIMEOUT",
+    "CERT_UNKNOWN",
+    "CertError",
+    "FetchError",
+    "allow_host",
+    "clear_allowlist",
+    "fetch",
+    "revoke_host",
+    "set_audit_log",
+    "set_ca_file",
+    "set_opener",
+    "set_unverified_opener",
+]
