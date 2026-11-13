@@ -1,3 +1,3 @@
-from .discover import discover
+from .discover import FormDiscoverError, discover
 
-__all__ = ["discover"]
+__all__ = ["FormDiscoverError", "discover"]
