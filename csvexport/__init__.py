@@ -1,3 +1,3 @@
-from .core import export
+from .core import ExportError, export
 
-__all__ = ["export"]
+__all__ = ["ExportError", "export"]
