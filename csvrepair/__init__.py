@@ -1,3 +1,3 @@
-from .repair import repair
+from .repair import RepairError, repair
 
-__all__ = ["repair"]
+__all__ = ["RepairError", "repair"]
