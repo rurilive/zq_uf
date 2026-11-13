@@ -1,3 +1,3 @@
-from .drift import diff, snapshot
+from .drift import diff, merge_alerts, snapshot
 
-__all__ = ["diff", "snapshot"]
+__all__ = ["diff", "merge_alerts", "snapshot"]
