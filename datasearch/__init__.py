@@ -1,3 +1,3 @@
-from .search import TABLES, search
+from .search import TABLES, SearchIndex, search, search_detail
 
-__all__ = ["TABLES", "search"]
+__all__ = ["TABLES", "SearchIndex", "search", "search_detail"]
