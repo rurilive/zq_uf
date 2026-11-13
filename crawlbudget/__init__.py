@@ -1,3 +1,11 @@
-from .budget import LIMIT, consume, remaining, reset
+from .budget import LIMIT, BudgetError, configure, consume, remaining, reset, stats
 
-__all__ = ["LIMIT", "consume", "remaining", "reset"]
+__all__ = [
+    "LIMIT",
+    "BudgetError",
+    "configure",
+    "consume",
+    "remaining",
+    "reset",
+    "stats",
+]
