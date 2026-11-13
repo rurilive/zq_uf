@@ -1,3 +1,9 @@
-from .pool import PROXIES, acquire
+from .pool import (
+    PROXIES,
+    PoolError,
+    PoolExhaustedError,
+    StickyPool,
+    acquire,
+)
 
-__all__ = ["PROXIES", "acquire"]
+__all__ = ["PROXIES", "PoolError", "PoolExhaustedError", "StickyPool", "acquire"]
