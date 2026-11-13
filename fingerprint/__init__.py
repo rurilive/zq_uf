@@ -1,3 +1,3 @@
-from .dedup import Fingerprint, digest
+from .dedup import DedupResult, Fingerprint, content_digest, digest, normalize_url
 
-__all__ = ["Fingerprint", "digest"]
+__all__ = ["DedupResult", "Fingerprint", "content_digest", "digest", "normalize_url"]
