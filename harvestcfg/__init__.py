@@ -1,3 +1,35 @@
-from .core import load
+from .core import (
+    LAYERS,
+    CircularReferenceError,
+    ConfigError,
+    ConfigLoader,
+    ConflictError,
+    Preview,
+    Resolved,
+    SensitiveValueError,
+    ValidationError,
+    Watcher,
+    diff_configs,
+    load,
+    merge_layers,
+    validate_config,
+    watch,
+)
 
-__all__ = ["load"]
+__all__ = [
+    "LAYERS",
+    "CircularReferenceError",
+    "ConfigError",
+    "ConfigLoader",
+    "ConflictError",
+    "Preview",
+    "Resolved",
+    "SensitiveValueError",
+    "ValidationError",
+    "Watcher",
+    "diff_configs",
+    "load",
+    "merge_layers",
+    "validate_config",
+    "watch",
+]
