@@ -1,3 +1,3 @@
-from .core import resample
+from .core import resample, rollup
 
-__all__ = ["resample"]
+__all__ = ["resample", "rollup"]
