@@ -1,3 +1,25 @@
-from .commit import STORE, commit, reset, rollback
+from .commit import (
+    JOURNAL,
+    PENDING,
+    STORE,
+    BatchError,
+    CompensationError,
+    commit,
+    configure,
+    reset,
+    rollback,
+    stats,
+)
 
-__all__ = ["STORE", "commit", "reset", "rollback"]
+__all__ = [
+    "JOURNAL",
+    "PENDING",
+    "STORE",
+    "BatchError",
+    "CompensationError",
+    "commit",
+    "configure",
+    "reset",
+    "rollback",
+    "stats",
+]
