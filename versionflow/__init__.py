@@ -1,3 +1,31 @@
-from .switch import current, reset, switch
+from .switch import (
+    PIPELINE_STEPS,
+    Step,
+    SwitchError,
+    audit_log,
+    cache_keys,
+    current,
+    default_pipeline,
+    metadata,
+    put_cache,
+    register_dataset,
+    register_version,
+    reset,
+    switch,
+)
 
-__all__ = ["current", "reset", "switch"]
+__all__ = [
+    "PIPELINE_STEPS",
+    "Step",
+    "SwitchError",
+    "audit_log",
+    "cache_keys",
+    "current",
+    "default_pipeline",
+    "metadata",
+    "put_cache",
+    "register_dataset",
+    "register_version",
+    "reset",
+    "switch",
+]
