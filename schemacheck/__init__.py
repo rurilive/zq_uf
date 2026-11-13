@@ -1,3 +1,3 @@
-from .check import validate
+from .check import replay, validate, validate_stream
 
-__all__ = ["validate"]
+__all__ = ["validate", "validate_stream", "replay"]
