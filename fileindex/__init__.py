@@ -1,3 +1,3 @@
-from .index import changed, index, reset
+from .index import CHUNK_SIZE, FileIndexError, changed, index, reset
 
-__all__ = ["changed", "index", "reset"]
+__all__ = ["CHUNK_SIZE", "FileIndexError", "changed", "index", "reset"]
