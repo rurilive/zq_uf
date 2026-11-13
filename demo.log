@@ -1,0 +1,10 @@
+2026-03-01T10:00:00+08:00 INFO service "api gateway" started
+2026-03-01 10:00:05 WARN disk almost full now
+[2026-03-01 10:00:07 +0800] ERROR user="Jane Doe" msg="write failed: \"disk full\""
+Traceback (most recent call last):
+  File "app.py", line 10, in <module>
+    raise ValueError("boom")
+ValueError: boom
+[2026-03-01 18:00:09 +0000] INFO msg="job done" worker=3
+this line is broken
+2026-03-01 INFO recovered after error
