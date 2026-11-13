@@ -1,3 +1,3 @@
-from .core import join
+from .core import JoinResult, join
 
-__all__ = ["join"]
+__all__ = ["JoinResult", "join"]
