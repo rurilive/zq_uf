@@ -1,3 +1,3 @@
-from .queue import TaskQueue
+from .queue import Task, TaskQueue, TaskStatus
 
-__all__ = ["TaskQueue"]
+__all__ = ["Task", "TaskQueue", "TaskStatus"]
