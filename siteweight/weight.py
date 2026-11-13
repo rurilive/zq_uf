@@ -1,25 +1,21 @@
-"""站点调度，当前所有站点等权轮转。"""
+"""模块级默认调度器：无反馈时等权轮转，反馈累计后动态调权。"""
+
+from .scheduler import Scheduler
 
 SITES = ["shop", "news", "blog"]
-_index = 0
-_results = []
+_scheduler = Scheduler(SITES)
 
 
 def reset():
-    global _index
-    _index = 0
-    _results.clear()
+    global _scheduler
+    _scheduler = Scheduler(SITES)
 
 
 def next_site():
-    """按固定顺序轮转，权重写死在代码里。"""
-    global _index
-    site = SITES[_index % len(SITES)]
-    _index += 1
-    return site
+    """从默认调度器取下一个站点。"""
+    return _scheduler.next()
 
 
 def feedback(site, result):
-    """记录结果，但不影响下一次选择。"""
-    _results.append({"site": site, "ok": bool(result)})
-    return len(_results)
+    """向默认调度器反馈结果，返回该站点的新权重。"""
+    return _scheduler.feedback(site, result)
