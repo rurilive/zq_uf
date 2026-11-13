@@ -1,3 +1,29 @@
-from .tenant import RESULTS, run
+from .tenant import (
+    RESULTS,
+    InvalidTaskError,
+    InvalidTenantError,
+    QuotaExceededError,
+    TenantAccessError,
+    TenantError,
+    configure,
+    read_all,
+    read_results,
+    reset,
+    run,
+    stats,
+)
 
-__all__ = ["RESULTS", "run"]
+__all__ = [
+    "RESULTS",
+    "InvalidTaskError",
+    "InvalidTenantError",
+    "QuotaExceededError",
+    "TenantAccessError",
+    "TenantError",
+    "configure",
+    "read_all",
+    "read_results",
+    "reset",
+    "run",
+    "stats",
+]
