@@ -1,3 +1,4 @@
-from .core import apply, plan
+from .core import Dataset, Plan, apply, plan
 
-__all__ = ["apply", "plan"]
+__all__ = ["Dataset", "Plan", "apply", "plan"]
+
