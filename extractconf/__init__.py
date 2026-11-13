@@ -1,3 +1,3 @@
-from .conf import apply, load
+from .conf import ConfigError, ExtractError, Result, apply, load
 
-__all__ = ["apply", "load"]
+__all__ = ["apply", "load", "ConfigError", "ExtractError", "Result"]
