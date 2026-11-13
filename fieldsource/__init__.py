@@ -1,3 +1,3 @@
-from .extract import extract
+from .extract import ExtractResult, extract, extract_many, merge
 
-__all__ = ["extract"]
+__all__ = ["ExtractResult", "extract", "extract_many", "merge"]
