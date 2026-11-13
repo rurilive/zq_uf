@@ -1,3 +1,3 @@
-from .tier import apply, plan
+from .tier import TieringError, apply, classify, plan, record_access
 
-__all__ = ["apply", "plan"]
+__all__ = ["TieringError", "apply", "classify", "plan", "record_access"]
