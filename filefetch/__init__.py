@@ -1,3 +1,5 @@
 from .download import download
 
-__all__ = ["download"]
+from .download import SiteLimiter, VerificationError
+
+__all__ = ["download", "SiteLimiter", "VerificationError"]
