@@ -1,3 +1,3 @@
-from .view import build, impact
+from .view import ViewError, build, export, impact, load, upstream
 
-__all__ = ["build", "impact"]
+__all__ = ["build", "impact", "upstream", "export", "load", "ViewError"]
