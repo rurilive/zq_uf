@@ -1,3 +1,17 @@
-from .version import get, reset, update
+from .version import (
+    RowVersionError,
+    configure,
+    get,
+    manual_queue,
+    reset,
+    update,
+)
 
-__all__ = ["get", "reset", "update"]
+__all__ = [
+    "RowVersionError",
+    "configure",
+    "get",
+    "manual_queue",
+    "reset",
+    "update",
+]
