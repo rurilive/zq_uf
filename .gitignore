@@ -1,0 +1,3 @@
+.jobdep/
+__pycache__/
+*.pyc
