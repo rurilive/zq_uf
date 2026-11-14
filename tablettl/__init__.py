@@ -1,3 +1,25 @@
-from .ttl import apply, plan
+from .ttl import (
+    ArchiveError,
+    apply,
+    archive_manifest,
+    plan,
+    reset_state,
+    restore,
+    restore_status,
+    table_data,
+    validate_archive,
+    verify_restore,
+)
 
-__all__ = ["apply", "plan"]
+__all__ = [
+    "ArchiveError",
+    "apply",
+    "archive_manifest",
+    "plan",
+    "reset_state",
+    "restore",
+    "restore_status",
+    "table_data",
+    "validate_archive",
+    "verify_restore",
+]
