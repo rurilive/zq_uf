@@ -1,3 +1,3 @@
-from .backfill import apply, plan
+from .backfill import Ledger, MetricStore, apply, plan
 
-__all__ = ["apply", "plan"]
+__all__ = ["apply", "plan", "MetricStore", "Ledger"]
