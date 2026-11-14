@@ -1,3 +1,3 @@
-from .apply import apply, reset, snapshot
+from .apply import EventError, apply, conflicts, reset, snapshot
 
-__all__ = ["apply", "reset", "snapshot"]
+__all__ = ["EventError", "apply", "conflicts", "reset", "snapshot"]
