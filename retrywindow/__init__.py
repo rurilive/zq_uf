@@ -1,3 +1,10 @@
-from .retry import due, schedule
+from .retry import RetryWindowError, abandoned, cancel, due, schedule, windows
 
-__all__ = ["due", "schedule"]
+__all__ = [
+    "RetryWindowError",
+    "abandoned",
+    "cancel",
+    "due",
+    "schedule",
+    "windows",
+]
