@@ -1,3 +1,3 @@
-from .band import give_back, take
+from .band import CONFIG, finish, give_back, reset, stats, take
 
-__all__ = ["give_back", "take"]
+__all__ = ["CONFIG", "finish", "give_back", "reset", "stats", "take"]
