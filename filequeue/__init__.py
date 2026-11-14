@@ -1,3 +1,25 @@
-from .queue import ack, get, put, reset
+from .queue import (
+    DEFAULT_MAX_DELIVERIES,
+    DEFAULT_VISIBILITY_TIMEOUT,
+    FileQueue,
+    ack,
+    advance,
+    configure,
+    get,
+    put,
+    reset,
+    stats,
+)
 
-__all__ = ["ack", "get", "put", "reset"]
+__all__ = [
+    "DEFAULT_MAX_DELIVERIES",
+    "DEFAULT_VISIBILITY_TIMEOUT",
+    "FileQueue",
+    "ack",
+    "advance",
+    "configure",
+    "get",
+    "put",
+    "reset",
+    "stats",
+]
