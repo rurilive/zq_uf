@@ -1,3 +1,3 @@
-from .chain import append, verify
+from .chain import append, export_report, rotate, verify
 
-__all__ = ["append", "verify"]
+__all__ = ["append", "verify", "rotate", "export_report"]
