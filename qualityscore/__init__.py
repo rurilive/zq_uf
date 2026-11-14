@@ -1,3 +1,3 @@
-from .score import score, trend
+from .score import configure, score, trend
 
-__all__ = ["score", "trend"]
+__all__ = ["configure", "score", "trend"]
