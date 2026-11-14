@@ -1,3 +1,3 @@
-from .sync import reset, rollback, snapshot, sync
+from .sync import progress, reset, rollback, snapshot, sync
 
-__all__ = ["reset", "rollback", "snapshot", "sync"]
+__all__ = ["progress", "reset", "rollback", "snapshot", "sync"]
