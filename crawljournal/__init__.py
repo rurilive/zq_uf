@@ -1,3 +1,3 @@
-from .journal import append, recover
+from .journal import Recovery, append, recover
 
-__all__ = ["append", "recover"]
+__all__ = ["Recovery", "append", "recover"]
