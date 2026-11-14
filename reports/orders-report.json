@@ -1,0 +1,139 @@
+{
+  "dataset": "orders",
+  "config": {
+    "threshold": 0.9,
+    "decline_days": 2,
+    "window": 7
+  },
+  "days": [
+    {
+      "date": "2026-11-13",
+      "score": 0.99,
+      "breakdown": [
+        {
+          "name": "order_id_not_null",
+          "level": "critical",
+          "weight": 3.0,
+          "failed": 0,
+          "score": 1.0,
+          "contribution": 0.5
+        },
+        {
+          "name": "amount_positive",
+          "level": "major",
+          "weight": 2.0,
+          "failed": 100,
+          "score": 0.99,
+          "contribution": 0.33
+        },
+        {
+          "name": "email_format",
+          "level": "minor",
+          "weight": 1.0,
+          "failed": 500,
+          "score": 0.95,
+          "contribution": 0.1583
+        }
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "score": 0.96,
+      "breakdown": [
+        {
+          "name": "order_id_not_null",
+          "level": "critical",
+          "weight": 3.0,
+          "failed": 50,
+          "score": 0.995,
+          "contribution": 0.4975
+        },
+        {
+          "name": "amount_positive",
+          "level": "major",
+          "weight": 2.0,
+          "failed": 400,
+          "score": 0.96,
+          "contribution": 0.32
+        },
+        {
+          "name": "email_format",
+          "level": "minor",
+          "weight": 1.0,
+          "failed": 1500,
+          "score": 0.85,
+          "contribution": 0.1417
+        }
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "score": 0.88,
+      "breakdown": [
+        {
+          "name": "order_id_not_null",
+          "level": "critical",
+          "weight": 3.0,
+          "failed": 300,
+          "score": 0.97,
+          "contribution": 0.485
+        },
+        {
+          "name": "amount_positive",
+          "level": "major",
+          "weight": 2.0,
+          "failed": 1200,
+          "score": 0.88,
+          "contribution": 0.2933
+        },
+        {
+          "name": "email_format",
+          "level": "minor",
+          "weight": 1.0,
+          "failed": 4000,
+          "score": 0.6,
+          "contribution": 0.1
+        }
+      ]
+    }
+  ],
+  "trend": {
+    "window": 7,
+    "scores": [
+      0.99,
+      0.96,
+      0.88
+    ],
+    "delta": -0.08,
+    "direction": "down",
+    "consecutive_declines": 2,
+    "drivers": [
+      {
+        "name": "email_format",
+        "level": "minor",
+        "delta": -0.25
+      },
+      {
+        "name": "amount_positive",
+        "level": "major",
+        "delta": -0.08
+      },
+      {
+        "name": "order_id_not_null",
+        "level": "critical",
+        "delta": -0.025
+      }
+    ]
+  },
+  "alerts": [
+    {
+      "type": "below_threshold",
+      "message": "总分 0.88 低于阈值 0.90"
+    },
+    {
+      "type": "consecutive_decline",
+      "days": 2,
+      "message": "总分已连续 2 天下降"
+    }
+  ]
+}
