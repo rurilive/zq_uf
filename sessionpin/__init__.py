@@ -1,3 +1,17 @@
-from .pin import bind, rebind
+from .pin import (
+    BindingLimitError,
+    NoAvailableExitError,
+    bind,
+    configure,
+    rebind,
+    records,
+)
 
-__all__ = ["bind", "rebind"]
+__all__ = [
+    "BindingLimitError",
+    "NoAvailableExitError",
+    "bind",
+    "configure",
+    "rebind",
+    "records",
+]
