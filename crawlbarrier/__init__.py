@@ -1,3 +1,3 @@
-from .barrier import arrive, wait
+from .barrier import WaitResult, arrive, expect, wait
 
-__all__ = ["arrive", "wait"]
+__all__ = ["WaitResult", "arrive", "expect", "wait"]
