@@ -1,3 +1,3 @@
-from .ua import headers, report
+from .ua import headers, report, stats
 
-__all__ = ["headers", "report"]
+__all__ = ["headers", "report", "stats"]
