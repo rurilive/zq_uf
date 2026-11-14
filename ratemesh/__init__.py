@@ -1,3 +1,3 @@
-from .mesh import give_back, take
+from .mesh import close, configure, give_back, stats, take
 
-__all__ = ["give_back", "take"]
+__all__ = ["close", "configure", "give_back", "stats", "take"]
