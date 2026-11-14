@@ -1,3 +1,3 @@
-from .policy import DEFAULT, resolve, update
+from .policy import DEFAULT, ResolvedPolicy, audit, resolve, update
 
-__all__ = ["DEFAULT", "resolve", "update"]
+__all__ = ["DEFAULT", "ResolvedPolicy", "audit", "resolve", "update"]
