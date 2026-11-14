@@ -1,3 +1,3 @@
-from .reader import SchemaMismatch, read
+from .reader import CompatReport, IncompatibleSchema, ReadResult, SchemaMismatch, read
 
-__all__ = ["SchemaMismatch", "read"]
+__all__ = ["CompatReport", "IncompatibleSchema", "ReadResult", "SchemaMismatch", "read"]

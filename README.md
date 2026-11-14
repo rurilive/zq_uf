@@ -11,6 +11,10 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+版本化schema为dict：fields声明字段类型，defaults给缺列默认值，renames登记旧列名到新字段的映射。
+加列：文件多出的列直接忽略，记入report.dropped_columns；删列：缺列用defaults补齐并记入report.filled_defaults，无默认值则整文件拒绝。
+改名：按renames还原，新旧列同时出现视为冲突，抛IncompatibleSchema。
 
-（实现后补，10 行以内）
+类型能转则转（如字符串9.9转float），记入report.conversions；转不了保留原值，行号和字段记入report.conversion_errors。
+不可兼容（缺列无默认值、改名冲突、行非JSON对象）抛IncompatibleSchema，说明行号和原因，整文件不返回。
+传list保持旧的严格行为；传dict返回ReadResult（等同list），差异报告在.report属性。
