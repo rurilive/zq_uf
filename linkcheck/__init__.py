@@ -1,3 +1,45 @@
-from .check import check, report
+from .check import (
+    DEAD,
+    ERROR,
+    LIMIT,
+    LOOP,
+    OK,
+    REDIRECT,
+    check,
+    export_jsonl,
+    report,
+    reset,
+    set_transport,
+    site_report,
+)
+from .transport import (
+    CAT_CONNECTION,
+    CAT_DNS,
+    CAT_INVALID,
+    CAT_SSL,
+    CAT_TIMEOUT,
+    FetchError,
+    UrllibTransport,
+)
 
-__all__ = ["check", "report"]
+__all__ = [
+    "check",
+    "report",
+    "reset",
+    "set_transport",
+    "site_report",
+    "export_jsonl",
+    "DEAD",
+    "ERROR",
+    "LIMIT",
+    "LOOP",
+    "OK",
+    "REDIRECT",
+    "FetchError",
+    "UrllibTransport",
+    "CAT_CONNECTION",
+    "CAT_DNS",
+    "CAT_INVALID",
+    "CAT_SSL",
+    "CAT_TIMEOUT",
+]
