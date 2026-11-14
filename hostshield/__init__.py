@@ -1,3 +1,3 @@
-from .shield import INTERVAL, acquire, release
+from .shield import INTERVAL, acquire, release, reset, status
 
-__all__ = ["INTERVAL", "acquire", "release"]
+__all__ = ["INTERVAL", "acquire", "release", "reset", "status"]
