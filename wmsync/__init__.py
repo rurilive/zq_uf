@@ -1,3 +1,21 @@
-from .watermark import reset, update, watermark
+from .watermark import (
+    heartbeat,
+    late_events,
+    reset,
+    restore,
+    snapshot,
+    status,
+    update,
+    watermark,
+)
 
-__all__ = ["reset", "update", "watermark"]
+__all__ = [
+    "heartbeat",
+    "late_events",
+    "reset",
+    "restore",
+    "snapshot",
+    "status",
+    "update",
+    "watermark",
+]
