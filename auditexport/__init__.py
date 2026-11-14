@@ -1,3 +1,3 @@
-from .export import export, resume
+from .export import ExportIntegrityError, export, resume
 
-__all__ = ["export", "resume"]
+__all__ = ["export", "resume", "ExportIntegrityError"]
