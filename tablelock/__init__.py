@@ -1,3 +1,3 @@
-from .lock import acquire, release
+from .lock import acquire, release, status
 
-__all__ = ["acquire", "release"]
+__all__ = ["acquire", "release", "status"]
