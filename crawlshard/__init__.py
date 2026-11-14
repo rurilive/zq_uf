@@ -1,3 +1,3 @@
-from .shard import elect, write
+from .shard import elect, status, write
 
-__all__ = ["elect", "write"]
+__all__ = ["elect", "status", "write"]
