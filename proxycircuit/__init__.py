@@ -1,3 +1,27 @@
-from .circuit import PROXIES, acquire, report
+from .circuit import (
+    CLOSED,
+    HALF_OPEN,
+    OPEN,
+    PROXIES,
+    acquire,
+    probe_results,
+    report,
+    reset,
+    state_counts,
+    state_of,
+    transitions,
+)
 
-__all__ = ["PROXIES", "acquire", "report"]
+__all__ = [
+    "CLOSED",
+    "HALF_OPEN",
+    "OPEN",
+    "PROXIES",
+    "acquire",
+    "probe_results",
+    "report",
+    "reset",
+    "state_counts",
+    "state_of",
+    "transitions",
+]
