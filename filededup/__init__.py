@@ -1,3 +1,3 @@
-from .dedup import add, remove
+from .dedup import add, objects, refs, remove
 
-__all__ = ["add", "remove"]
+__all__ = ["add", "remove", "objects", "refs"]
