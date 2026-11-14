@@ -1,16 +1,20 @@
 # depcycle
 
-现状：只按配置读依赖，环检测直接返回空。
+依赖图环检测：入度剥离（Kahn）定位环上节点，Tarjan 求强连通分量，
+枚举分量内所有基本环，check(graph) 返回闭合环路径列表。
 
-问题：写出环后任务互相等待，热更新绕过检查，只报错不给断边建议。
+断边口径：suggest_breaks(graph) 对每个强连通分量求"断边数最少、
+并列时总权重最小"的断边集（分量边数 >16 时贪心近似），每项给出
+edge、weight、affected 受影响节点列表和 affected_count。
 
-目标：入度遍历找环和强连通，增量检查，按权重给最少断边。
+热更新：CycleChecker.preview(node, deps) 更新前增量预检，
+update(node, deps) 应用后只重算经过该节点的环。
 
 ```bash
 python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+图格式：{"a": ["b"]} 无权（权重 1）、{"a": {"b": 2.5}} 带权。
 
-（实现后补，10 行以内）
+异常：引用不存在的节点、权重非正数、格式非法均抛 GraphError。
