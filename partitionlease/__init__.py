@@ -1,3 +1,25 @@
-from .lease import acquire, release, renew
+from .lease import (
+    LeaseError,
+    LeaseExpiredError,
+    NotLeaseHolderError,
+    StaleFenceError,
+    acquire,
+    events,
+    holder,
+    release,
+    renew,
+    write,
+)
 
-__all__ = ["acquire", "release", "renew"]
+__all__ = [
+    "LeaseError",
+    "LeaseExpiredError",
+    "NotLeaseHolderError",
+    "StaleFenceError",
+    "acquire",
+    "events",
+    "holder",
+    "release",
+    "renew",
+    "write",
+]

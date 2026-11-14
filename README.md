@@ -1,16 +1,13 @@
 # partitionlease
 
-现状：分区租约只记最后持有者，没有过期和栅栏。
+带栅栏的分区租约，纯 Python 标准库。同一分区同一时刻只有一个有效租约。
 
-问题：并发写互相覆盖，崩溃后分区占着，续期出现双主。
-
-目标：过期加栅栏，写入带栅栏值，旧值拒绝，抢占有明确错误。
+- `acquire(dataset, partition, owner, ttl)`：拿租约，返回持有者与单调递增的 `fence_token`；挤掉他人有效租约记 `preempt`，接收过期租约记 `reclaim`。
+- `renew(...)` / `release(...)`：原子操作，只有当前持有者能续期或释放，返回是否成功；过期未续的租约可被他人回收。
+- `write(dataset, partition, owner, fence_token, payload)`：写入必须带当前栅栏值；旧栅栏抛 `StaleFenceError`，过期抛 `LeaseExpiredError`，非持有者抛 `NotLeaseHolderError`。
+- `holder(...)` 查当前有效持有者，`events(...)` 输出持有者、栅栏、抢占、回收、续期、释放记录。
 
 ```bash
 python3 demo.py
 python3 -m unittest discover -s tests
 ```
-
-（实现后补，10 行以内）
-
-（实现后补，10 行以内）
