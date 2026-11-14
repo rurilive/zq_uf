@@ -1,3 +1,37 @@
-from .probe import probe, verdict
+from .gateway import CertInfo, HTTPResponse, StdlibGateway
+from .probe import (
+    BLOCK,
+    OK,
+    WARN,
+    ProbeEngine,
+    cache_info,
+    clear_cache,
+    gateway_scope,
+    intercept,
+    intercept_records,
+    normalize_site,
+    probe,
+    reset_gateway,
+    set_gateway,
+    verdict,
+)
 
-__all__ = ["probe", "verdict"]
+__all__ = [
+    "probe",
+    "verdict",
+    "intercept",
+    "ProbeEngine",
+    "StdlibGateway",
+    "CertInfo",
+    "HTTPResponse",
+    "normalize_site",
+    "set_gateway",
+    "reset_gateway",
+    "gateway_scope",
+    "cache_info",
+    "clear_cache",
+    "intercept_records",
+    "OK",
+    "WARN",
+    "BLOCK",
+]
