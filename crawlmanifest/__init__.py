@@ -1,3 +1,3 @@
-from .manifest import verify, write
+from .manifest import recover, verify, write
 
-__all__ = ["verify", "write"]
+__all__ = ["recover", "verify", "write"]
