@@ -1,3 +1,35 @@
-from .lease import release, lease, usage
+from .lease import (
+    LeaseError,
+    LeaseLimitError,
+    LeaseStateError,
+    checkpoint,
+    checkpoints,
+    is_active,
+    lease,
+    preemptions,
+    reclaim_expired,
+    release,
+    reset,
+    set_site_limit,
+    status,
+    usage,
+    wait_queue,
+)
 
-__all__ = ["release", "lease", "usage"]
+__all__ = [
+    "LeaseError",
+    "LeaseLimitError",
+    "LeaseStateError",
+    "checkpoint",
+    "checkpoints",
+    "is_active",
+    "lease",
+    "preemptions",
+    "reclaim_expired",
+    "release",
+    "reset",
+    "set_site_limit",
+    "status",
+    "usage",
+    "wait_queue",
+]
