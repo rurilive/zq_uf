@@ -1,3 +1,11 @@
-from .repair import confirm, infer
+from .repair import audit, confirm, infer, register, registry, reset, rollback
 
-__all__ = ["confirm", "infer"]
+__all__ = [
+    "infer",
+    "confirm",
+    "rollback",
+    "register",
+    "registry",
+    "audit",
+    "reset",
+]
