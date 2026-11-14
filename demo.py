@@ -1,7 +1,14 @@
 from crawlshard import elect, write
+from crawlshard import shard
 
-elect("shard-1", "m1")
-print(elect("shard-1", "m3"))
-print(write("shard-1", "m1", {"id": 1}))
+print(elect("shard-1", "m1"))
+print(elect("shard-1", "m2"))
+for i in range(3):
+    print(write("shard-1", "m1", {"id": i}))
 
-# TODO: 第二段演示（实现后补）
+shard._down.add("m1")
+print(elect("shard-1", "m2"))
+print(write("shard-1", "m2", {"id": 3}))
+
+shard._down.discard("m1")
+print(write("shard-1", "m1", {"id": 99}))
