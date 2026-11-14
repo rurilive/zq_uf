@@ -1,3 +1,3 @@
-from .allow import allowed, block
+from .allow import StoreError, allowed, audit, block, current, unblock
 
-__all__ = ["allowed", "block"]
+__all__ = ["StoreError", "allowed", "audit", "block", "current", "unblock"]
