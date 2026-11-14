@@ -1,3 +1,4 @@
-from .plan import plan, run
+from .plan import plan
+from .runner import Job, run
 
-__all__ = ["plan", "run"]
+__all__ = ["plan", "run", "Job"]
