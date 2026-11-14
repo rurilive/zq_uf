@@ -1,3 +1,3 @@
-from .queue import ack, get, put, reset
+from .queue import ack, configure, get, put, reset, stats
 
-__all__ = ["ack", "get", "put", "reset"]
+__all__ = ["ack", "configure", "get", "put", "reset", "stats"]
