@@ -1,3 +1,3 @@
-from .gate import check, waive
+from .gate import audit, check, waive
 
-__all__ = ["check", "waive"]
+__all__ = ["check", "waive", "audit"]
