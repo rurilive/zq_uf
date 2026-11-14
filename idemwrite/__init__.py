@@ -1,3 +1,3 @@
-from .write import reset, write
+from .write import IdemWriteError, reset, write
 
-__all__ = ["reset", "write"]
+__all__ = ["IdemWriteError", "reset", "write"]
