@@ -11,6 +11,16 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+## 节点与边
 
-（实现后补，10 行以内）
+- 节点：`(table, key)`，key 为主键值（str/int/float）。
+- 边：`{"src": (table,key), "dst": (table,key), "job": 任务名, "ts": 时间戳}`。
+- 边来源：`rows` 显式四元组，或 `sql` 中 `INSERT INTO t (c) SELECT s.c FROM s WHERE s.c = v / IN (...)` 解析出的主键映射 + 过滤值。
+- `keys` 只记列映射（`"源表.列" -> "目标表.列"`），不产生行级边。
+
+## 接口
+
+- `record(job)`：记录任务（`inputs/outputs/keys/sql/rows/ts`），返回任务序号；非法输入抛 `LineageError`。
+- `trace(table)`：表级，返回 `[{"job","inputs","outputs"}]`；`trace(table, key)` 行级，返回 `upstream/downstream`（带 level）、`paths`、`truncated`；该 key 无边时退化表级。
+- `propagate(table, key, update_id=...)`：沿边向下游传播，visited 集合截断环路；同一 `update_id` 重复调用幂等（`updated` 为空）。
+- 查询过滤：`tables=` 限定两端表集合，`start=/end=` 限定边时间范围。
