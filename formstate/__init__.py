@@ -1,3 +1,4 @@
-from .form import start, step
+from .form import dumps, loads, start, step
 
-__all__ = ["start", "step"]
+__all__ = ["start", "step", "dumps", "loads"]
+
