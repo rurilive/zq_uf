@@ -1,3 +1,3 @@
-from .queue import pop, push
+from .queue import configure, pop, push, stats
 
-__all__ = ["pop", "push"]
+__all__ = ["configure", "pop", "push", "stats"]
