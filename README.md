@@ -1,14 +1,19 @@
 # crawlhold
 
-现状：挂起信号到达时直接退出，在跑请求被硬断。
+采集任务的可恢复挂起模块，纯 Python 标准库，接口 `hold(task)` / `release(task)`。
 
-问题：半写文件遗留，代理和配额不释放，恢复不知道从哪继续。
+## 挂起阶段
 
-目标：可恢复挂起，等在跑请求收尾并落检查点。
+`stopping`(停止取新任务) → `draining`(等在跑请求收尾，超时强制收尾并标记半写文件，未完成 URL 重新入队) → `checkpointing`(原子落检查点) → `releasing`(释放资源) → `exited`。
+
+## 资源口径
+
+- 代理、配额：挂起时归还，在报告的 `released` 中列出；文件句柄同时关闭。
+- 半写文件：挂起时记入检查点 `partial_files`，恢复时删除（`cleaned`）。
+- 检查点：`<workdir>/<task>.checkpoint.json`，含进度与待抓队列；恢复先校验（版本、任务名、字段）再消费，进度与挂起前一致。
+- 重复 `hold` / `release` 幂等，返回首次结果。
 
 ```bash
 python3 demo.py
 python3 -m unittest discover -s tests
 ```
-
-（实现后补，10 行以内）
