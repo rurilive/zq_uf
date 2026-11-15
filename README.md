@@ -11,4 +11,16 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+用法（10 行以内）：
+
+```python
+from compressneg import Negotiator
+neg = Negotiator(fetch=fetch)          # fetch(site, accept_encoding) -> response
+neg.selfcheck("shop")                  # 新站点接入自检，失败只影响该站点
+neg.headers("shop")                    # 按协商记录发请求头，未知站点用 identity
+r = neg.decode(resp, site="shop")      # 按实际编码解码，r 含 status/encoding/failed
+neg.override("shop", charset="gbk")    # 人工覆盖并锁定，自动探测不再改回
+neg.unlock("shop")                     # 站点改版后解锁，下次 negotiate 重探
+neg.retained["shop"]                   # 解压失败的原始字节，保留到排查结束
+neg.clear_retained("shop")             # 排查完成后清理
+```
