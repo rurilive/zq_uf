@@ -1,3 +1,3 @@
-from .retention import apply, plan
+from .retention import apply, load_plan, plan, rollback, save_plan
 
-__all__ = ["apply", "plan"]
+__all__ = ["apply", "plan", "rollback", "save_plan", "load_plan"]
