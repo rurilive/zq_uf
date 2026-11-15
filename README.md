@@ -11,4 +11,10 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+用法（10 行以内）：
+- `bind(session, site)`：TTL 内固定出口，到期或出口失效自动换绑，返回当前出口与剩余时间
+- `rebind(session, site, reason)`：手动换绑，记录原因和旧出口，旧出口进入冷却
+- 冷却结束后由下一次换绑触发回切；冷却中返回里带提示和冷却结束时间
+- 绑定按 `(session, site)` 隔离，上限 `MAX_BINDINGS`，超限回收最久未用的
+- `query(session)` 按会话查绑定，`export()` 导出绑定与换绑历史供值班回看
+- `set_rollout([...])` 灰度：先小范围会话验证登录态，确认不丢再 `set_rollout(None)` 全量
