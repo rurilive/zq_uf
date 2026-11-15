@@ -11,4 +11,5 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+实现：条件按批次存于 `_flows[flow]`，`step()` 校验令牌判重放、空值判失败并留草稿，
+`back()` 截断后续条件并重发令牌，`export/import_flow/copy_flow` 跨批次复用且拒绝覆盖。
