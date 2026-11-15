@@ -1,3 +1,5 @@
-from .dedup import flush, put
+from .dedup import configure, flush, put, reset, stats
 
-__all__ = ["flush", "put"]
+__version__ = "2.0.0"
+
+__all__ = ["configure", "flush", "put", "reset", "stats", "__version__"]
