@@ -1,3 +1,37 @@
-from .clock import now, sync
+from .clock import (
+    ReferenceUnavailable,
+    configure,
+    current_offset,
+    drift_curve,
+    last_dst,
+    load_records,
+    machine_id,
+    now,
+    records,
+    reset_state,
+    station_name,
+    station_timezone,
+    station_window,
+    status,
+    sync,
+    to_station,
+)
 
-__all__ = ["now", "sync"]
+__all__ = [
+    "ReferenceUnavailable",
+    "configure",
+    "current_offset",
+    "drift_curve",
+    "last_dst",
+    "load_records",
+    "machine_id",
+    "now",
+    "records",
+    "reset_state",
+    "station_name",
+    "station_timezone",
+    "station_window",
+    "status",
+    "sync",
+    "to_station",
+]
