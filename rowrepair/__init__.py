@@ -1,3 +1,3 @@
-from .repair import ingest, replay
+from .repair import ingest, replay, fix, progress, export_quarantine, reset
 
-__all__ = ["ingest", "replay"]
+__all__ = ["ingest", "replay", "fix", "progress", "export_quarantine", "reset"]
