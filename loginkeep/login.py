@@ -1,15 +1,9 @@
-"""采集登录态管理，当前每次请求重新登录。"""
+"""兼容入口：lease/refresh 的实现已移到 :mod:`loginkeep.manager`。
 
-_issued = {}
+保留这个模块是为了兼容 ``from loginkeep.login import lease, refresh``
+的旧调用方式，新代码直接 ``from loginkeep import lease, refresh``。
+"""
 
+from .manager import lease, refresh
 
-def lease(account):
-    """每条请求都发一个新令牌，不判断过期。"""
-    token = "t-%s-%d" % (account, len(_issued) + 1)
-    _issued[token] = {"account": account, "uses": 0}
-    return {"account": account, "token": token, "expires_in": 0, "shared": False}
-
-
-def refresh(token):
-    """没有续期，返回原令牌。"""
-    return {"token": token, "refreshed": False, "relogin": False}
+__all__ = ["lease", "refresh"]
