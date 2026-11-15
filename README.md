@@ -11,4 +11,9 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+实现：
+- 条件按批次逐步保存在 `_flows[flow]["conditions"]`，批次间隔离。
+- `step(flow, data, token=...)` 提交当前步；已消费令牌再提交返回首次结果并标 `replayed`，只产一套结果。
+- `back(flow, to_step)` 作废其后条件并重取令牌，返回标 `back`。
+- `fail=True` 模拟失败：条件存 draft、步骤不动，返回 `failed_step`/`failed_condition`，恢复后原步重提。
+- `finish` 后 `export` 导出条件；`import_conditions`/`copy_to` 落到新批次从原步骤继续，已存在批次不覆盖。
