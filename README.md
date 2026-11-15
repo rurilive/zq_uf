@@ -11,4 +11,7 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+用法：`merge_shard(shard, seq, {url: lastmod})` 按序号幂等合并，返回
+added/updated/deleted/skipped；`diff(round_id)` 回看某轮差异；
+`verify(全量, max_diff)` 超限即停，`confirm()` 恢复；`rollback(since)`
+回滚删除，`purge(before)` 清理到期墓碑。
