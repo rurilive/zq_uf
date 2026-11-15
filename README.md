@@ -1,14 +1,15 @@
 # failclass
 
-现状：所有失败都记成 error，一律重试三次。
-
-问题：永久失败也重试，统计分不开，站点级故障被放大。
-
-目标：按超时、封禁、不存在分类，预算按站点共享。
+抓取失败按原因分流，重试预算按站点共享。
 
 ```bash
 python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+- `classify(error, response)`：归一成 `timeout` / `blocked` / `not_found` / `error`，
+  证据包含状态码、响应头（自动剔除 cookie/authorization）、URL 和原文。
+- `FailureRouter`：超时退避重试；封禁换出口并冷却，冷却期自动结束；
+  页面不存在直接放弃进人工复核。站点预算每天重置，复核后重新入队不计费。
+- `summary(site)` 看失败构成，`history(site, reason)` 追溯到具体请求，
+  `export_review(site=..., fmt="csv")` 按站点导出复核清单，`requeue(task)` 放回队列。
