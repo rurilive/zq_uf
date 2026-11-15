@@ -1,3 +1,17 @@
-from .extract import blocks, extract
+from .extract import (
+    ExtractionError,
+    Extractor,
+    SiteConfig,
+    blocks,
+    diff_results,
+    extract,
+)
 
-__all__ = ["blocks", "extract"]
+__all__ = [
+    "ExtractionError",
+    "Extractor",
+    "SiteConfig",
+    "blocks",
+    "diff_results",
+    "extract",
+]
