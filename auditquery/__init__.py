@@ -1,3 +1,3 @@
-from .search import load, page, search
+from .search import configure, load, page, search
 
-__all__ = ["load", "search", "page"]
+__all__ = ["load", "search", "page", "configure"]
