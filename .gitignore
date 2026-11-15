@@ -1,0 +1,3 @@
+.partclone/
+__pycache__/
+*.pyc

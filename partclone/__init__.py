@@ -1,3 +1,33 @@
-from .clone import clone, verify
+from .clone import (
+    DEFAULT_STATE_DIR,
+    MAX_RETRIES,
+    CloneError,
+    CloneInterrupted,
+    Partition,
+    VerifyError,
+    audit_log,
+    clone,
+    discard_checkpoint,
+    is_visible,
+    load_checkpoint,
+    query,
+    reset,
+    verify,
+)
 
-__all__ = ["clone", "verify"]
+__all__ = [
+    "clone",
+    "verify",
+    "query",
+    "is_visible",
+    "reset",
+    "Partition",
+    "CloneError",
+    "CloneInterrupted",
+    "VerifyError",
+    "audit_log",
+    "load_checkpoint",
+    "discard_checkpoint",
+    "MAX_RETRIES",
+    "DEFAULT_STATE_DIR",
+]
