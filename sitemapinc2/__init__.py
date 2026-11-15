@@ -1,3 +1,11 @@
-from .sm import diff, merge
+from .sm import (
+    DEFAULT_RETENTION_SECONDS,
+    DiffThresholdExceeded,
+    Merger,
+)
 
-__all__ = ["merge", "diff"]
+__all__ = [
+    "Merger",
+    "DiffThresholdExceeded",
+    "DEFAULT_RETENTION_SECONDS",
+]
