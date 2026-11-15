@@ -1,3 +1,3 @@
-from .rate import acquire, feedback
+from .rate import acquire, feedback, join_group, records, replay, rollback
 
-__all__ = ["acquire", "feedback"]
+__all__ = ["acquire", "feedback", "join_group", "records", "replay", "rollback"]
