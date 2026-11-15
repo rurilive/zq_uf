@@ -1,3 +1,40 @@
-from .norm import add, same
+from .index import URLNormIndex
+from .norm import (
+    SameResult,
+    add,
+    add_rule,
+    class_info,
+    class_of,
+    get_index,
+    load,
+    recompute,
+    remove,
+    remove_many,
+    reset_index,
+    same,
+    save,
+    size,
+    update_rule,
+)
+from .rules import Rule, make_strip_query_rule
 
-__all__ = ["add", "same"]
+__all__ = [
+    "add",
+    "same",
+    "remove",
+    "remove_many",
+    "size",
+    "class_of",
+    "class_info",
+    "recompute",
+    "update_rule",
+    "add_rule",
+    "save",
+    "load",
+    "get_index",
+    "reset_index",
+    "Rule",
+    "SameResult",
+    "make_strip_query_rule",
+    "URLNormIndex",
+]
