@@ -1,3 +1,19 @@
-from .align import apply, snapshot
+from .align import (
+    AlignError,
+    ChangeStream,
+    SnapshotSession,
+    apply,
+    repair,
+    snapshot,
+    write,
+)
 
-__all__ = ["snapshot", "apply"]
+__all__ = [
+    "AlignError",
+    "ChangeStream",
+    "SnapshotSession",
+    "apply",
+    "repair",
+    "snapshot",
+    "write",
+]
