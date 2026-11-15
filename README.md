@@ -11,4 +11,13 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+```python
+from manifestcheck import write, verify, repair, repair_log, export_diff, export_manifest
+write({"path": "manifest.json", "data_dir": "data",
+       "files": [{"name": "part-0", "shard": 0}]})   # 原子写，版本只增，失败不覆盖
+verify("manifest.json", data_dir="data", shard=0)    # 先在一个分片试运行；列出缺失/多余/损坏
+repair("manifest.json", source_dir="backup", data_dir="data")  # 只补缺失项，按天记日志
+repair_log("manifest.json")                          # 值班查看每次修复的文件清单
+export_diff("manifest.json", "diff.json", data_dir="data")     # 差异清单导出
+export_manifest("manifest.json", "shard-0.json", shard=0)      # 按分片导出查看
+```
