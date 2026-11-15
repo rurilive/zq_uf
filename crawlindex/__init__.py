@@ -1,3 +1,5 @@
-from .index import query, rebuild
+from .index import configure, progress, query, rebuild, reset, update, version
 
-__all__ = ["query", "rebuild"]
+__all__ = [
+    "query", "rebuild", "update", "progress", "version", "configure", "reset",
+]
