@@ -1,3 +1,3 @@
-from .sm import diff, merge
+from .sm import configure, diff, merge, reset, snapshot
 
-__all__ = ["merge", "diff"]
+__all__ = ["merge", "diff", "configure", "reset", "snapshot"]
