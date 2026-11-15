@@ -1,3 +1,3 @@
-from .contract import check
+from .contract import ContractHistory, check, export, matrix
 
-__all__ = ["check"]
+__all__ = ["check", "matrix", "export", "ContractHistory"]
