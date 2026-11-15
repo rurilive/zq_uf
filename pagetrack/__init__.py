@@ -1,3 +1,5 @@
-from .track import changes, save
+from .track import (changes, pull, reset, rollback, save, subscribe,
+                    versions)
 
-__all__ = ["changes", "save"]
+__all__ = ["changes", "pull", "reset", "rollback", "save", "subscribe",
+           "versions"]
