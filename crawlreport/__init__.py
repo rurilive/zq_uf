@@ -1,3 +1,3 @@
-from .report import build, reconcile
+from .report import REPORT_VERSION, build, drilldown, export, reconcile
 
-__all__ = ["build", "reconcile"]
+__all__ = ["REPORT_VERSION", "build", "reconcile", "drilldown", "export"]
