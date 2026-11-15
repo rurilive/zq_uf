@@ -1,3 +1,21 @@
-from .memo import get, remember
+from .memo import (
+    clear,
+    configure,
+    events,
+    get,
+    remember,
+    report_failure,
+    report_features,
+    stats,
+)
 
-__all__ = ["get", "remember"]
+__all__ = [
+    "clear",
+    "configure",
+    "events",
+    "get",
+    "remember",
+    "report_failure",
+    "report_features",
+    "stats",
+]
