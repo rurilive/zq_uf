@@ -1,3 +1,23 @@
-from .health import report, score
+from .health import (
+    daily,
+    export,
+    export_watchlist,
+    history,
+    replay,
+    report,
+    reset,
+    score,
+    watchlist,
+)
 
-__all__ = ["report", "score"]
+__all__ = [
+    "daily",
+    "export",
+    "export_watchlist",
+    "history",
+    "replay",
+    "report",
+    "reset",
+    "score",
+    "watchlist",
+]
