@@ -1,3 +1,3 @@
-from .merge import merge, report
+from .merge import configure, merge, report, replay, export, reset
 
-__all__ = ["merge", "report"]
+__all__ = ["configure", "merge", "report", "replay", "export", "reset"]
