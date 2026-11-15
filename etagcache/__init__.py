@@ -1,3 +1,3 @@
-from .etag import headers, store
+from .etag import clear, configure, fingerprint, headers, stats, store
 
-__all__ = ["headers", "store"]
+__all__ = ["headers", "store", "configure", "clear", "stats", "fingerprint"]
