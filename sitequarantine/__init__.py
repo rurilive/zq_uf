@@ -1,3 +1,5 @@
-from .quarantine import probe, quarantine
+from .quarantine import (audit, classify_reason, configure, override, probe,
+                         quarantine, reset, stats, status)
 
-__all__ = ["probe", "quarantine"]
+__all__ = ["audit", "classify_reason", "configure", "override", "probe",
+           "quarantine", "reset", "stats", "status"]
