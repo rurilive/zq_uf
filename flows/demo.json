@@ -1,0 +1,10 @@
+{
+  "name": "demo-branch",
+  "stages": [
+    {"name": "fetch", "depends_on": [], "requires": ["seed"], "produces": ["html"]},
+    {"name": "parse_html", "depends_on": ["fetch"], "requires": ["html"], "produces": ["items_html"]},
+    {"name": "parse_meta", "depends_on": ["fetch"], "requires": ["html"], "produces": ["items_meta"]},
+    {"name": "merge", "depends_on": ["parse_html", "parse_meta"], "requires": ["items_html", "items_meta"], "produces": ["items"]},
+    {"name": "store", "depends_on": ["merge"], "requires": ["items"], "produces": ["stored"]}
+  ]
+}
