@@ -1,3 +1,3 @@
-from .extract import blocks, extract
+from .extract import blocks, configure, diff, extract
 
-__all__ = ["blocks", "extract"]
+__all__ = ["blocks", "configure", "diff", "extract"]
