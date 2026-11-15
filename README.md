@@ -11,4 +11,8 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+用法：`Negotiator` 按站点保存协商记录。未知站点 `headers()` 发全量探测；
+`decode()` 按实际 content-encoding 解压、按 头/BOM/meta/内容 判编码，
+并记住协商结果。解压失败返回 `decompress_failed` 并保留原始字节
+（`failed_responses()` 取、`clear_failed()` 清），未锁定时回退 identity。
+`override()` 人工覆盖并锁定，`unlock()` 解锁重探，`selfcheck()` 新站自检。

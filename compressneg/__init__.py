@@ -1,3 +1,3 @@
-from .neg import decode, headers
+from .neg import Negotiator, decode, detect_charset, headers, offer_list
 
-__all__ = ["decode", "headers"]
+__all__ = ["Negotiator", "decode", "detect_charset", "headers", "offer_list"]
