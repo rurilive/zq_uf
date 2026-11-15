@@ -1,3 +1,3 @@
-from .skew import observe, report
+from .skew import configure, history, observe, replay, report
 
-__all__ = ["observe", "report"]
+__all__ = ["configure", "history", "observe", "replay", "report"]
