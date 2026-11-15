@@ -1,3 +1,27 @@
-from .contract import check, enforce
+from .contract import (
+    ContractError,
+    MODE_ACTIVE,
+    MODE_SHADOW,
+    SEVERITY_BLOCK,
+    SEVERITY_WARN,
+    check,
+    drift_report,
+    enforce,
+    failure_samples,
+    recheck,
+    register_contract,
+)
 
-__all__ = ["check", "enforce"]
+__all__ = [
+    "ContractError",
+    "MODE_ACTIVE",
+    "MODE_SHADOW",
+    "SEVERITY_BLOCK",
+    "SEVERITY_WARN",
+    "check",
+    "drift_report",
+    "enforce",
+    "failure_samples",
+    "recheck",
+    "register_contract",
+]
