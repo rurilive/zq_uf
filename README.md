@@ -11,4 +11,14 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+用法：
+
+```python
+from schemagray import plan, apply
+p = plan({"tables": [{"name": "dim_region", "access": "read"},
+                     {"name": "orders", "access": "write"}],
+          "batch_size": 1, "approver": "dba", "summary": "add column"})
+r = apply(p, observe=lambda batch, i: {"error_rate": 0.0, "latency_ms": 5.0})
+# 只读表先灰度；某批观察超阈值即停批，回滚只影响已放量表，record 保留审批信息
+apply({**p, "resume_from": r["resume_from"]})  # 停批后接着上一批继续
+```
