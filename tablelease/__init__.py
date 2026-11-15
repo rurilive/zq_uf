@@ -1,3 +1,3 @@
-from .lease import acquire, release
+from .lease import acquire, release, status, audit_log
 
-__all__ = ["acquire", "release"]
+__all__ = ["acquire", "release", "status", "audit_log"]
