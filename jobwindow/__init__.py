@@ -1,3 +1,35 @@
-from .window import close, open
+from .window import (
+    close,
+    complete_task,
+    configure,
+    fail_job,
+    finish_task,
+    mark_job,
+    mark_task,
+    open,
+    register_job,
+    reset,
+    set_group_limit,
+    set_job_status,
+    snapshot,
+    state,
+    status,
+)
 
-__all__ = ["close", "open"]
+__all__ = [
+    "close",
+    "complete_task",
+    "configure",
+    "fail_job",
+    "finish_task",
+    "mark_job",
+    "mark_task",
+    "open",
+    "register_job",
+    "reset",
+    "set_group_limit",
+    "set_job_status",
+    "snapshot",
+    "state",
+    "status",
+]
