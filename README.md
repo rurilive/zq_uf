@@ -11,4 +11,8 @@ python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+实现：事件按 event_time 归窗（小时粒度），迟到事件回到历史窗口并触发整窗重算。
+重算从事件日志算新值，在同一临界区内撤销旧版本、写入新版本，失败则旧版本不动。
+每次重算生成一个版本，记录撤销的旧值，versions(window) 可查明细。
+add/recompute 返回 window、recomputed、retracted、version。
+demo 第二段演示先在一个历史窗口与人工核对，一致后再扩大范围。
