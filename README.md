@@ -1,14 +1,15 @@
 # extractcache
 
-现状：每条记录都重新编译规则，结果不缓存。
+带版本和容量的抽取规则编译缓存，纯标准库，接口 `compile(rules)` / `invalidate(version)`。
 
-问题：规则更新后缓存不失效谈不上，缓存也没有容量上限。
-
-目标：按规则指纹缓存编译结果，版本失效，按条数淘汰。
+缓存与失效口径：
+- 缓存键 = 规则指纹 sha256(规则 id + version + params)，规则或参数变更即换键；未声明 version 的规则不缓存，每次重新编译（兼容旧行为）。
+- `invalidate(version)` 删除该版本全部条目，并写入共享失效日志广播；其他进程下次读取时懒清理。编译失败（规则非法）不写缓存。
+- 容量按条数限制（`EXTRACTCACHE_CAPACITY`，默认 128），淘汰最久未用：`last_access + 命中次数 × 60s` 最低者先出。
+- 多进程共享：缓存落盘（`EXTRACTCACHE_HOME`，默认 `~/.extractcache`），fcntl 文件锁保护，临时文件 + `os.replace` 原子更新。
+- `stats()` 输出命中、失效、淘汰和命中率，命中率按规则统计。
 
 ```bash
 python3 demo.py
 python3 -m unittest discover -s tests
 ```
-
-（实现后补，10 行以内）
