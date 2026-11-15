@@ -1,3 +1,3 @@
-from .scroll import done, scroll
+from .scroll import StopStats, done, scroll
 
-__all__ = ["scroll", "done"]
+__all__ = ["scroll", "done", "StopStats"]
