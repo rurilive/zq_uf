@@ -1,14 +1,10 @@
 # failclass
 
-现状：所有失败都记成 error，一律重试三次。
-
-问题：永久失败也重试，统计分不开，站点级故障被放大。
-
-目标：按超时、封禁、不存在分类，预算按站点共享。
-
 ```bash
 python3 demo.py
 python3 -m unittest discover -s tests
 ```
 
-（实现后补，10 行以内）
+- `classify`：把失败归一到 `timeout` / `blocked` / `not_found` / `error`，证据带状态码、响应头、请求标识。
+- `policy`：超时等一会儿再试；封禁换出口并冷却；不存在直接放弃。
+- `FailureGovernor`：按站点共享每日额度；放弃进复核清单（可导出 / 重新入队不计次）；失败构成与处理历史可追溯；冷却到点自动恢复。
