@@ -1,3 +1,45 @@
-from .links import due, fingerprint
+from .links import (
+    Alias,
+    Entry,
+    LinkStore,
+    NormalizeRules,
+    alias_report,
+    alerts,
+    daily_metrics,
+    due,
+    explain,
+    export_aliases,
+    fingerprint,
+    legacy_fingerprint,
+    observe,
+    promote,
+    rejudge,
+    reset_state,
+    rollback,
+    site_alerts,
+    start_trial,
+)
+from .normalize import normalize
 
-__all__ = ["due", "fingerprint"]
+__all__ = [
+    "Alias",
+    "Entry",
+    "LinkStore",
+    "NormalizeRules",
+    "alias_report",
+    "alerts",
+    "daily_metrics",
+    "due",
+    "explain",
+    "export_aliases",
+    "fingerprint",
+    "legacy_fingerprint",
+    "normalize",
+    "observe",
+    "promote",
+    "rejudge",
+    "reset_state",
+    "rollback",
+    "site_alerts",
+    "start_trial",
+]
