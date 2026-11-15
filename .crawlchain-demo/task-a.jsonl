@@ -1,0 +1,16 @@
+{"type": "begin", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "ts": 1794762718.7933517, "pid": 638226, "host": "m1"}
+{"type": "begin", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "ts": 1794762718.8330421, "pid": 638274, "host": "m1"}
+{"type": "stage_start", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "stage": "fetch", "ts": 1794762718.8331566, "pid": 638274}
+{"type": "stage_end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "stage": "fetch", "ts": 1794762718.883314, "elapsed_ms": 50.157, "ok": true, "error": null}
+{"type": "stage_start", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "stage": "parse", "ts": 1794762718.8931365, "pid": 638226}
+{"type": "stage_end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "stage": "parse", "ts": 1794762718.913417, "elapsed_ms": 20.281, "ok": false, "error": "ValueError: bad html: missing <title>"}
+{"type": "end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 1, "ts": 1794762718.9136536, "ok": false, "error": "bad html: missing <title>"}
+{"type": "begin", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "ts": 1794762718.9139745, "pid": 638226, "host": "m1"}
+{"type": "begin", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "ts": 1794762718.9478583, "pid": 638365, "host": "m1"}
+{"type": "stage_start", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "stage": "fetch", "ts": 1794762718.9479632, "pid": 638365}
+{"type": "stage_end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "stage": "fetch", "ts": 1794762718.9981017, "elapsed_ms": 50.138, "ok": true, "error": null}
+{"type": "stage_start", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "stage": "parse", "ts": 1794762719.0062225, "pid": 638226}
+{"type": "stage_end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "stage": "parse", "ts": 1794762719.0264945, "elapsed_ms": 20.272, "ok": true, "error": null}
+{"type": "stage_start", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "stage": "store", "ts": 1794762719.0267367, "pid": 638226}
+{"type": "stage_end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "stage": "store", "ts": 1794762719.176881, "elapsed_ms": 150.144, "ok": true, "error": null}
+{"type": "end", "trace": "t-a89ea43010f4", "task": "task-a", "attempt": 2, "ts": 1794762719.1771235, "ok": true, "error": null}

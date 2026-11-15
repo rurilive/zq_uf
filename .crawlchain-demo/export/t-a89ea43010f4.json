@@ -1,0 +1,108 @@
+{
+  "trace": "t-a89ea43010f4",
+  "task": "task-a",
+  "slow_threshold_ms": 1000.0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok": false,
+      "error": "bad html: missing <title>",
+      "stages": [
+        {
+          "attempt": 1,
+          "stage": "fetch",
+          "pid": 638274,
+          "start_ts": 1794762718.8331566,
+          "elapsed_ms": 50.157,
+          "ok": true,
+          "error": null
+        },
+        {
+          "attempt": 1,
+          "stage": "parse",
+          "pid": 638226,
+          "start_ts": 1794762718.8931365,
+          "elapsed_ms": 20.281,
+          "ok": false,
+          "error": "ValueError: bad html: missing <title>"
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "ok": true,
+      "error": null,
+      "stages": [
+        {
+          "attempt": 2,
+          "stage": "fetch",
+          "pid": 638365,
+          "start_ts": 1794762718.9479632,
+          "elapsed_ms": 50.138,
+          "ok": true,
+          "error": null
+        },
+        {
+          "attempt": 2,
+          "stage": "parse",
+          "pid": 638226,
+          "start_ts": 1794762719.0062225,
+          "elapsed_ms": 20.272,
+          "ok": true,
+          "error": null
+        },
+        {
+          "attempt": 2,
+          "stage": "store",
+          "pid": 638226,
+          "start_ts": 1794762719.0267367,
+          "elapsed_ms": 150.144,
+          "ok": true,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "merged": {
+    "fetch": {
+      "attempts": 2,
+      "ok": true,
+      "elapsed_ms": 50.138,
+      "slow": false
+    },
+    "parse": {
+      "attempts": 2,
+      "ok": true,
+      "elapsed_ms": 20.272,
+      "slow": false
+    },
+    "store": {
+      "attempts": 1,
+      "ok": true,
+      "elapsed_ms": 150.144,
+      "slow": false
+    }
+  },
+  "slowest": {
+    "attempt": 2,
+    "stage": "store",
+    "elapsed_ms": 150.144
+  },
+  "failure_point": {
+    "attempt": 1,
+    "stage": "parse",
+    "error": "ValueError: bad html: missing <title>"
+  },
+  "error_chain": [
+    {
+      "attempt": 1,
+      "stage": "parse",
+      "error": "ValueError: bad html: missing <title>"
+    },
+    {
+      "attempt": 1,
+      "stage": null,
+      "error": "bad html: missing <title>"
+    }
+  ]
+}
