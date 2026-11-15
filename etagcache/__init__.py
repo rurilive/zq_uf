@@ -1,3 +1,3 @@
-from .etag import headers, store
+from .etag import Cache, get, headers, reset, store
 
-__all__ = ["headers", "store"]
+__all__ = ["Cache", "get", "headers", "reset", "store"]
