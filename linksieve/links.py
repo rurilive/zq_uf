@@ -1,25 +1,24 @@
-"""采集链接指纹与重访，当前对整串URL取哈希。"""
-import hashlib
+"""稳定对外接口：``fingerprint(url)`` 与 ``due(url, now)``。
 
-_seen = {}
-_INTERVAL = 3600
+内部实现见 :mod:`linksieve.store`；需要别名、告警、试运行等能力时
+直接使用 ``LinkStore``。
+"""
+from .store import DEFAULT_STORE, LinkStore
+
+__all__ = ["fingerprint", "due", "LinkStore", "DEFAULT_STORE"]
 
 
 def fingerprint(url):
-    """整串URL直接哈希，参数顺序和追踪参数都会改变结果。"""
-    return hashlib.sha256((url or "").encode("utf-8")).hexdigest()[:16]
+    """同一内容的不同写法（追踪参数/参数顺序/锚点）得到同一指纹。"""
+    return DEFAULT_STORE.fingerprint(url)
 
 
 def due(url, now):
-    """首次到期，之后按固定间隔判断。"""
-    fp = fingerprint(url)
-    last = _seen.get(fp)
-    if last is None:
-        _seen[fp] = now
-        return {"url": url, "fingerprint": fp, "due": True,
-                "interval": _INTERVAL, "reason": "new"}
-    ok = now - last >= _INTERVAL
-    if ok:
-        _seen[fp] = now
-    return {"url": url, "fingerprint": fp, "due": ok,
-            "interval": _INTERVAL, "reason": "interval"}
+    """判断是否到期，返回判定依据。
+
+    除原有的 ``url`` / ``fingerprint`` / ``due`` / ``interval`` / ``reason``
+    外，还包含 ``canonical``（判重键）、``rules_hit``（命中的规则）、
+    ``is_alias`` / ``alias_of``（是否别名及所属目标）和
+    ``next_due_at``（下次到期时间）。
+    """
+    return DEFAULT_STORE.due(url, now)
