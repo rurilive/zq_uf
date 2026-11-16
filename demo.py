@@ -1,4 +1,4 @@
-from dataclass import discover, hits, report
+from dataclass import adjust, discover, export, hits, report, rescan, samples
 
 TABLE = {
     "name": "crm.users",
@@ -15,4 +15,21 @@ print(result["columns"])
 print(hits("crm.users"))
 print(report())
 
-# TODO: 第二段演示（实现后补）
+# 第二段：人工调整 + 按库导出
+STAFF = {
+    "name": "hr.staff",
+    "columns": [
+        {"name": "c1", "comment": "", "values": ["11010119900307777X"]},
+        {"name": "card_no", "comment": "银行卡", "values": ["6222020200112233445"]},
+    ],
+}
+discover(STAFF)
+
+# 认定错了可以人工调整，记住后只重扫受影响的表
+adjust("crm.users", "email_addr", level="高")
+print("rescanned", rescan())
+print(samples("crm.users", "phone"))
+print(report())
+
+for row in export("crm"):
+    print(row)
