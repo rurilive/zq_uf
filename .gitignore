@@ -1,0 +1,5 @@
+# 默认进度落盘目录
+.dirprobe_state/
+__pycache__/
+*.pyc
+.pytest_cache/
