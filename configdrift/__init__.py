@@ -1,3 +1,3 @@
-from .drift import baseline, diff, report
+from .drift import baseline, diff, history, report, set_range
 
-__all__ = ["baseline", "diff", "report"]
+__all__ = ["baseline", "diff", "history", "report", "set_range"]
