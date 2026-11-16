@@ -1,5 +1,5 @@
 """资产合并小工具。"""
 
-from .core import merge, report, scan_list
+from .core import MergeAbort, merge, preview, report, scan_list, split
 
-__all__ = ["merge", "report", "scan_list"]
+__all__ = ["MergeAbort", "merge", "preview", "report", "scan_list", "split"]
