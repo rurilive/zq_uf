@@ -1,3 +1,3 @@
-from .banner import identify, register, report
+from .banner import identify, override, register, report
 
-__all__ = ["identify", "report", "register"]
+__all__ = ["identify", "override", "register", "report"]
