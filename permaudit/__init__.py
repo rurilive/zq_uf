@@ -1,3 +1,19 @@
-from .audit import audit, grant, report
+from .audit import (
+    audit,
+    changes,
+    grant,
+    reclaim,
+    recheck,
+    report,
+    reset,
+)
 
-__all__ = ["audit", "report", "grant"]
+__all__ = [
+    "audit",
+    "report",
+    "grant",
+    "reclaim",
+    "recheck",
+    "changes",
+    "reset",
+]
