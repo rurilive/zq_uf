@@ -1,0 +1,21 @@
+[
+  {
+    "id": "p1",
+    "scenario": "note",
+    "request": "/pay?note=<script>alert(1)</script>",
+    "expect": "block",
+    "expect_rule": "xss"
+  },
+  {
+    "id": "p2",
+    "scenario": "note",
+    "request": "/pay?note=thanks for the <invoice>",
+    "expect": "pass"
+  },
+  {
+    "id": "p3",
+    "scenario": "nickname",
+    "request": "/pay?nickname=<coolkid>",
+    "expect": "pass"
+  }
+]

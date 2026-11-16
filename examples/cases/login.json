@@ -1,0 +1,15 @@
+[
+  {
+    "id": "l1",
+    "scenario": "login_form",
+    "request": "/login?user=admin'--",
+    "expect": "block",
+    "expect_rule": "login_sqli"
+  },
+  {
+    "id": "l2",
+    "scenario": "login_form",
+    "request": "/login?user=alice",
+    "expect": "pass"
+  }
+]

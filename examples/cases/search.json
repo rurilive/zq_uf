@@ -1,0 +1,21 @@
+[
+  {
+    "id": "s1",
+    "scenario": "query",
+    "request": "/search?q=union select password",
+    "expect": "block",
+    "expect_rule": "sqli"
+  },
+  {
+    "id": "s2",
+    "scenario": "query",
+    "request": "/search?q=laptop stand",
+    "expect": "pass"
+  },
+  {
+    "id": "s3",
+    "scenario": "query",
+    "request": "/search?q=coffee table",
+    "expect": "pass"
+  }
+]
