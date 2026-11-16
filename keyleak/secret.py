@@ -1,67 +1,44 @@
-"""密钥扫描，当前按关键字找赋值行。
+"""密钥扫描入口。
 
-paths 是 仓库/文件 到文件内容的映射，扫描过程不访问磁盘。
+公开 API：
+- scan(paths)：扫描 "仓库/文件" -> 文件内容 的映射，同值密钥合并成一条；
+- report()：按仓库分组的处置看板；
+- whitelist(value=..., pattern=...)：误报加白；
+- triage(entry_id, handler, method)：记录确认处理；
+- reset()：清空内存态。
+
+扫描过程不访问磁盘，paths 即全部输入，纯标准库实现。
 """
 
-KEYWORDS = ("password", "passwd", "secret", "token", "api_key")
+from .store import SecretStore
 
-_entries = []
-
-
-def _scan_text(repo, name, text):
-    """一行里有密钥字样并且带等号，就把等号右边当成密钥。"""
-    found = []
-    for number, line in enumerate(text.splitlines(), start=1):
-        lowered = line.lower()
-        for word in KEYWORDS:
-            if word in lowered and "=" in line:
-                value = line.split("=", 1)[1].strip().strip("'\"")
-                found.append(
-                    {
-                        "repo": repo,
-                        "file": name,
-                        "line": number,
-                        "keyword": word,
-                        "value": value,
-                        "confidence": "low",
-                        "usage": [],
-                        "status": "open",
-                    }
-                )
-                break
-    return found
+_store = SecretStore()
 
 
 def scan(paths):
-    """逐个文件找关键字，同一份密钥出现几次就记几条。"""
-    global _entries
-    if not isinstance(paths, dict):
-        raise ValueError("paths must map repo/file to content")
-    _entries = []
-    repos = {}
-    for name, text in paths.items():
-        if not isinstance(name, str) or not name:
-            raise ValueError("file name must be a non empty str")
-        if not isinstance(text, str):
-            raise ValueError("file content must be str")
-        repo = name.split("/", 1)[0]
-        repos[repo] = repos.get(repo, 0) + 1
-        _entries.extend(_scan_text(repo, name, text))
-    return {
-        "entries": _entries,
-        "files": len(paths),
-        "repos": repos,
-    }
+    """扫描文件映射并返回合并后的密钥条目。
+
+    返回 {"entries": [...], "files": n, "repos": {repo: 文件数}}。
+    每次调用基于当前白名单增量合并；reset() 可从零开始。
+    """
+    return _store.scan(paths)
 
 
 def report():
-    """按仓库数条目，不合并同值密钥。"""
-    repos = {}
-    for entry in _entries:
-        repos[entry["repo"]] = repos.get(entry["repo"], 0) + 1
-    return {
-        "total": len(_entries),
-        "open": len([e for e in _entries if e["status"] == "open"]),
-        "repos": repos,
-        "duplicates": 0,
-    }
+    """按仓库分组的汇总：可信程度、使用痕迹、处置状态、重复暴露。"""
+    return _store.report()
+
+
+def whitelist(value=None, pattern=None):
+    """把误报加入白名单（精确值或正则），并立即对已扫结果生效。"""
+    return _store.whitelist(value=value, pattern=pattern)
+
+
+def triage(entry_id, handler, method, note=""):
+    """记录某条密钥的处置：处理人 handler、方式 method（如 rotated/revoked/removed）。"""
+    return _store.triage(entry_id, handler, method, note)
+
+
+def reset():
+    """清空所有条目与白名单，回到初始状态。"""
+    _store.reset()
