@@ -1,3 +1,3 @@
-from .scan import report, scan, whitelist
+from .scan import report, reset, scan, whitelist
 
-__all__ = ["scan", "report", "whitelist"]
+__all__ = ["scan", "report", "whitelist", "reset"]
