@@ -1,5 +1,21 @@
-"""反射型跨站小工具。"""
+"""反射型 / 存储型 XSS 检测小工具。"""
 
-from .reflect import PAYLOAD, check, load, report
+from .reflect import (
+    CANARY,
+    PAYLOAD,
+    check,
+    load,
+    report,
+    reset,
+    submit,
+)
 
-__all__ = ["PAYLOAD", "check", "load", "report"]
+__all__ = [
+    "CANARY",
+    "PAYLOAD",
+    "check",
+    "load",
+    "report",
+    "reset",
+    "submit",
+]
