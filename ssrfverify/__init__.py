@@ -1,3 +1,21 @@
-from .probe import check, report, reset
+from .probe import (
+    ReceiverUnavailable,
+    attach_receiver,
+    check,
+    report,
+    reset,
+    start_receiver,
+    stop_receiver,
+)
+from .receiver import CallbackReceiver
 
-__all__ = ["check", "report", "reset"]
+__all__ = [
+    "CallbackReceiver",
+    "ReceiverUnavailable",
+    "attach_receiver",
+    "check",
+    "report",
+    "reset",
+    "start_receiver",
+    "stop_receiver",
+]
