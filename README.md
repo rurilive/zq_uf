@@ -1,5 +1,5 @@
 # packerdetect
 安全方向的小工具，用来缩小崩溃样本。
-现状：按固定比例截断输入，不验证截断后是否还能崩溃。
-运行：python3 demo.py
-（实现后补，10 行以内）
+`minimize(crash)` 逐步删减输入，每步验证崩溃仍可复现，失败即回退；
+`reproduce(id)` 按编号取最小样本（最小样本优先）和复现命令。
+运行：python3 demo.py；测试：python3 -m unittest discover -s tests
